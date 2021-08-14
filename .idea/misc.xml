@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/drawable/ic_table.xml" value="0.22291666666666668" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_add.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_add_karyawan.xml" value="0.18" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_add_kategori.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_add_meja.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_add_pay_method.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_add_produk.xml" value="0.25" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_add_take_away.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_bluetooth_device_list.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_checkout.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_dashboard.xml" value="0.33" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_info_app.xml" value="0.25" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_laporan.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_menu.xml" value="0.15" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_menu_dinein.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_menu_kategori.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_menu_payment.xml" value="0.1" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_menu_pegawai.xml" value="0.22" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_menu_produk.xml" value="0.1" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_menu_take_away.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_menu_transaksi.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_menu_transaksi_orderan.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_profile_toko.xml" value="0.2" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_profile_user.xml" value="0.1" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/btn_loading_layout.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/detail_laporan.xml" value="0.1" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_kategori.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_keranjang.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_laporan.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_layanan.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_meja.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_menu.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_orderan.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_pay_method.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_pegawai.xml" value="0.25" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_item_produk.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_table_row.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_table_row_detail_laporan.xml" value="0.1638888888888889" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_toolbar_with_back.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/layout_total_order.xml" value="0.15" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/list_transaksi.xml" value="0.20677083333333332" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/list_transaksi_dine.xml" value="0.15" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/produk_transaksi.xml" value="0.22" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/transaksi_dine_in.xml" value="0.15" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/transaksi_orderan.xml" value="0.15" />
+        <entry key="..\:/Belajar/android studio/AppKasir/app/src/main/res/layout/transaksi_take_away.xml" value="0.15" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

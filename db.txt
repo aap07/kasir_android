@@ -1,0 +1,92 @@
+data class User (
+    var nama:String? = null,
+    var username:String? = null,
+    var password:String? = null,
+    var role:String? = null
+):SugarRecord<User>(){
+    companion object{
+        val userAdmin = "userAdmin"
+        val userSysAdmin = "userSysAdmin"
+    }
+}
+
+data class Profile (
+    var statusPpn: Boolean? = false,
+    var statusDiskon: Boolean? = false,
+    var ppn: Double? = 0.0,
+    var namaToko : String? = null,
+    var alamatToko : String? = null
+): SugarRecord<Profile>()
+
+data class Orderan(
+    var namaOrderan : String? = null
+): SugarRecord<Orderan>(){
+    override fun toString(): String {
+        return this.namaOrderan.toString()
+    }
+}
+
+data class Meja(
+    var status: Boolean? = false,
+    var namaMeja : String? = null,
+    var totalPengunjung : Int? = 0
+): SugarRecord<Meja>(){
+    override fun toString(): String {
+        return this.namaMeja.toString()
+    }
+}
+
+data class Layanan(
+    var namaLayanan : String? = null,
+    var totalLayanan : Int? = 0
+): SugarRecord<Layanan>(){
+    override fun toString(): String {
+        return this.namaLayanan.toString()
+    }
+}
+
+data class Kategori(
+    var namaKategori : String? = null
+): SugarRecord<Kategori>(){
+    override fun toString(): String {
+        return this.namaKategori.toString()
+    }
+}
+
+data class Produk(
+    var namaProduk: String? = null,
+    var kategori: Kategori? = null,
+    var harga: Double? = null,
+    var totalTerjual: Int? = 0
+) : SugarRecord<Produk>()
+
+data class Transaksi(
+    var status: Boolean? = false,
+    var tanggalTransaksi: String? = null,
+    var namaPembeli: String? = "n/a",
+    var orderId: Long? = 0,
+    var namaOrderan: String? = null,
+    var layananId: Long? = 0,
+    var namaLayanan: String? = null,
+    var mejaId: Int? = 0,
+    var namaMeja: String? = null,
+    var totalPembayaran: Double? = 0.0,
+    var bayar: Double? = 0.0,
+    var diskon: Double? = 0.0,
+    var nominalPpn: Double? = 0.0,
+    var nominalDiskon: Double? = 0.0
+): SugarRecord<Transaksi>()
+
+data class ItemTransaksi(
+    var jumlah: Int? = 0,
+    var namaProduk: String? = null,
+    var hargaProduk: Double? = 0.0,
+    var kategori: String? = null,
+    var produkId: Long? = 0,
+    val transaksiId: Long? = 0
+) : SugarRecord<ItemTransaksi>()
+
+data class MetodePembayaran(
+    var namaMetode: String? = null,
+    var totalMetode : Int? = 0
+) : SugarRecord<MetodePembayaran>()

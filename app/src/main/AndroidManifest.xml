@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.aap.cstore.appkasir">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application xmlns:tools="http://schemas.android.com/tools"
+        android:name="com.orm.SugarApp"
+        android:allowBackup="true"
+        android:icon="@drawable/app_cashier"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/app_cashier"
+        android:requestLegacyExternalStorage="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon">
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/provider_path" />
+
+        <activity
+            android:name=".activity.ActivitySplashScreen"
+            android:screenOrientation="portrait" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".activity.BluetoothDeviceListActivity" />
+
+        <activity
+            android:name=".activity.ActivityLogin"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityDashboard"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityMenuKategori"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityTambahKategori"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityMenuProduk"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityTambahProduk"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityMenuPegawai"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityTambahPegawai"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityMenuDinein"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityTambahMeja"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityMenuTakeAway"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityTambahLayanan"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityMenuPayment"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityTambahPayMethod"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityProfileUser"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityProfileToko"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityInfoApp"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityMenuTransaksi"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.TransaksiOrderan"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ListTransaksi"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.KategoriTransaksi"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ProdukTransaksi"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.ActivityMenuLaporan"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.DetailBulanan"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.LaporanHarian"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.DetailLaporanHarian"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.LaporanTransaksi"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.CheckoutRecord"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="DATABASE"
+            android:value="appkasir.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="1" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="false" />
+        <meta-data
+            android:name="DOMAIN_PACKAGE_NAME"
+            android:value="com.aap.cstore.appkasir" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.aap.cstore.appkasir.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path" />
+        </provider>
+
+    </application>
+
+</manifest>

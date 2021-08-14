@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">App Kasir</string>
+    <string-array name="Role">
+        <item>Admin</item>
+        <item>Kasir</item>
+    </string-array>
+</resources>

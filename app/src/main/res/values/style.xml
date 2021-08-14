@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/primary_light</item>
+    </style>
+    <style name="customOutlineBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="colorAccent">#2da5de</item>
+        <item name="startIconTint">#2da5de</item>
+        <item name="passwordToggleTint">#2da5de</item>
+        <item name="boxStrokeColor">#2da5de</item>
+        <item name="android:textColor">#2da5de</item>
+    </style>
+</resources>
