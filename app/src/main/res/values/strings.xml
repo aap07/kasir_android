@@ -1,7 +1,54 @@
 <resources>
-    <string name="app_name">App Kasir</string>
+    <string name="app_name">App Cashier</string>
+    <string name="welcome">Welcome</string>
+    <string name="greetings_morning">Good Morning</string>
+    <string name="greetings_afternoon">Good Afternoon</string>
+    <string name="greetings_night">Good Night</string>
+    <string name="transaction">Transaction</string>
+    <string name="wrong_login">Wrong User/Password</string>
+    <string name="login">LOGIN</string>
+    <string name="c_store07">C-Store07</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="app_cashier">APP CASHIER</string>
+    <string name="date">Senin, 07 Desember 2020</string>
+    <string name="today">Today</string>
+    <string name="sales_today">Rp. 0</string>
+    <string name="this_month">This Month</string>
+    <string name="sales_month">Rp. 0</string>
+    <string name="menu">Menu</string>
+    <string name="menu_name">Menu Name</string>
+    <string name="category_management">Category Management</string>
+    <string name="product_management">Product Management</string>
+    <string name="dine_in_management">Dine-In Management</string>
+    <string name="take_away_management">Take-Away Management</string>
+    <string name="payment_management">Payment Management</string>
+    <string name="employee_management">Employee Management</string>
+    <string name="store_management">Store Management</string>
+    <string name="sales_report">Sales Report</string>
+    <string name="profile">Profile</string>
+    <string name="about">About</string>
+    <string name="category">Category</string>
+    <string name="product">Product</string>
+    <string name="dine_in">Dine-In</string>
+    <string name="take_away">Take-Away</string>
+    <string name="payment">Payment</string>
+    <string name="logout">Logout</string>
+    <string name="no_category">No Category List</string>
+    <string name="no_product">No Product List</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="sure_to_delete">Are you sure to delete?</string>
+    <string name="edit">Edit</string>
+    <string name="add">Add</string>
+    <string name="sold">Sold</string>
+    <string name="price">Rp. 0</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="report">Report</string>
+
+    <!--  Array  -->
     <string-array name="Role">
         <item>Admin</item>
-        <item>Kasir</item>
+        <item>Cashier</item>
     </string-array>
 </resources>

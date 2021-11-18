@@ -9,25 +9,27 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.aap.cstore.appkasir.R
+import com.aap.cstore.appkasir.databinding.ActivityLoginBinding
 import com.aap.cstore.appkasir.models.User
 import com.aap.cstore.appkasir.utils.*
 import com.orm.SugarRecord
-import kotlinx.android.synthetic.main.activity_login.*
 
 class ActivityLogin : AppCompatActivity() {
 
+    private lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_login)
-
-        btnMasuk.setOnClickListener {
-            if (checkInputUsername(textInputUsername) && checkInputPassword(textInputPassword)) {
-                val username = textInputUsername.editText?.text.toString().trim()
-                val password = textInputPassword.editText?.text.toString().trim()
+            WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnMasuk.root.setOnClickListener {
+            if (checkInputUsername(binding.textInputUsername) && checkInputPassword(binding.textInputPassword)) {
+                val username = binding.textInputUsername.editText?.text.toString().trim()
+                val password = binding.textInputPassword.editText?.text.toString().trim()
                 val progressbar = BtnLoadingProgressbar(it)
                 val user = SugarRecord.find(
                     User::class.java,
@@ -48,7 +50,7 @@ class ActivityLogin : AppCompatActivity() {
                     progressbar.setLoading()
                     Handler().postDelayed({
                         progressbar.setState(false){ // executed after animation end
-                            Toast.makeText(this, "Login gagal user / password salah!", Toast.LENGTH_SHORT)
+                            Toast.makeText(this, R.string.wrong_login, Toast.LENGTH_SHORT)
                                 .show()
                             Handler().postDelayed({
                                 progressbar.reset()

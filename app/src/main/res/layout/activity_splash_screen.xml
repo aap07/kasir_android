@@ -15,7 +15,7 @@
         android:fontFamily="@font/aclonica"
         android:text="@string/app_name"
         android:textColor="#fff"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -26,10 +26,10 @@
         android:layout_below="@+id/splashText"
         android:layout_centerInParent="true"
         android:fontFamily="@font/aladin"
-        android:text="Selamat Pagi, Selamat Datang"
+        android:text="@string/greetings_morning"
         android:textAlignment="center"
         android:textColor="#fff"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:typeface="sans" />
 

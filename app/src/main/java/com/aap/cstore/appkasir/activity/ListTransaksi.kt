@@ -11,11 +11,7 @@ import com.aap.cstore.appkasir.adapter.RclvItemTransaksi
 import com.aap.cstore.appkasir.models.*
 import com.aap.cstore.appkasir.utils.*
 import com.orm.SugarRecord
-import kotlinx.android.synthetic.main.activity_menu.*
 import kotlinx.android.synthetic.main.list_transaksi.*
-import kotlinx.android.synthetic.main.list_transaksi.btnAdd
-import kotlinx.android.synthetic.main.list_transaksi.rclv
-import kotlinx.android.synthetic.main.list_transaksi.tvEmpty
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -38,6 +34,7 @@ class ListTransaksi : AppCompatActivity() {
             val namaMeja = listMeja.nama
             /*Setting toolbar*/
             setToolbar(this, "List Pesanan Meja " + namaMeja)
+            setToRecyclerView()
             btnAdd.setOnClickListener {
                 listMeja.status = true
                 listMeja.save()
@@ -51,12 +48,12 @@ class ListTransaksi : AppCompatActivity() {
                         namaMeja = namaMeja,
                         tanggalTransaksi = SimpleDateFormat("dd/MM/yyyy hh:mm:ss a", Locale.getDefault()).format(Date().time).toString()
                     ).save()
-                    val inten = Intent(this, KategoriTransaksi::class.java)
+                    val inten = Intent(this, ProdukTransaksi::class.java)
                     inten.putExtra("mejaId", listMeja.id)
                     startActivity(inten)
                     finish()
                 }else{
-                    val inten = Intent(this, KategoriTransaksi::class.java)
+                    val inten = Intent(this, ProdukTransaksi::class.java)
                     inten.putExtra("mejaId", listMeja.id)
                     startActivity(inten)
                     finish()
@@ -66,7 +63,23 @@ class ListTransaksi : AppCompatActivity() {
                 listMeja.status = false
                 listMeja.save()
                 val transaksi = SugarRecord.find(Transaksi::class.java,"status = ? and id_meja = ?","1", idMeja.toString()).firstOrNull()
+                val itemTransaksi = SugarRecord.find(ItemTransaksi::class.java,"id_transaksi = ?",transaksi?.id.toString())
+                val item = itemTransaksi.distinctBy { l -> l.produkId }
+                for (it in item){
+                    val produk = SugarRecord.findById(Produk::class.java,it.produkId)
+                    produk.totalTerjual = produk.totalTerjual?.minus(it.jumlah!!)
+                    produk.save()
+                }
+                for (itTrans in itemTransaksi){
+                    itTrans.delete()
+                }
                 transaksi?.delete()
+                finish()
+            }
+            btnPay.setOnClickListener {
+                val inten = Intent(this, CheckTransaksi::class.java)
+                inten.putExtra("mejaId", listMeja.id)
+                startActivity(inten)
                 finish()
             }
         }
@@ -75,6 +88,7 @@ class ListTransaksi : AppCompatActivity() {
             val namaLayanan = listLayanan.nama
             /*Setting toolbar*/
             setToolbar(this, "List Pesanan " + namaLayanan)
+            setToRecyclerView()
             btnAdd.setOnClickListener {
                 val transaksi = SugarRecord.find(Transaksi::class.java,"status = ? and id_layanan = ?","1", idLayanan.toString()).firstOrNull()
                 if ( transaksi == null) {
@@ -86,12 +100,12 @@ class ListTransaksi : AppCompatActivity() {
                         namaLayanan = namaLayanan,
                         tanggalTransaksi = SimpleDateFormat("dd/MM/yyyy hh:mm:ss a", Locale.getDefault()).format(Date().time).toString()
                     ).save()
-                    val inten = Intent(this, KategoriTransaksi::class.java)
+                    val inten = Intent(this, ProdukTransaksi::class.java)
                     inten.putExtra("layananId", listLayanan.id)
                     startActivity(inten)
                     finish()
                 }else{
-                    val inten = Intent(this, KategoriTransaksi::class.java)
+                    val inten = Intent(this, ProdukTransaksi::class.java)
                     inten.putExtra("layananId", listLayanan.id)
                     startActivity(inten)
                     finish()
@@ -99,7 +113,24 @@ class ListTransaksi : AppCompatActivity() {
             }
             btnBtl.setOnClickListener {
                 val transaksi = SugarRecord.find(Transaksi::class.java,"status = ? and id_layanan = ?","1", idLayanan.toString()).firstOrNull()
+                val itemTransaksi = SugarRecord.find(ItemTransaksi::class.java,"id_transaksi = ?",transaksi?.id.toString())
+                val item = itemTransaksi.distinctBy { l -> l.produkId }
+                for (it in item){
+                    val produk = SugarRecord.findById(Produk::class.java,it.produkId)
+                    produk.totalTerjual = produk.totalTerjual?.minus(it.jumlah!!)
+                    produk.save()
+                }
+                for (itTrans in itemTransaksi){
+                    itTrans.delete()
+                }
                 transaksi?.delete()
+                finish()
+
+            }
+            btnPay.setOnClickListener {
+                val inten = Intent(this, CheckTransaksi::class.java)
+                inten.putExtra("layananId", listLayanan.id)
+                startActivity(inten)
                 finish()
             }
         }

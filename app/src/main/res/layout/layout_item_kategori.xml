@@ -26,7 +26,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:textAlignment="center"
-                android:text="Kategori"
+                android:text="@string/category"
                 android:textStyle="bold"
                 android:textColor="#2da5de"
                 android:textSize="14sp"

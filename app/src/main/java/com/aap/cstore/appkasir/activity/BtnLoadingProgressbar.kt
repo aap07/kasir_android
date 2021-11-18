@@ -36,9 +36,9 @@ class BtnLoadingProgressbar(view:View) {
     fun setState(isSuccess:Boolean,onAnimationEnd:()->Unit){
         val v = layout.background
         val bgColor = if (isSuccess)
-            Color.parseColor("#2da5de") // color success
+            Color.TRANSPARENT // color success
         else
-            Color.parseColor("#2da5de") // color error
+            Color.TRANSPARENT // color error
 
         val bgAnim = ObjectAnimator.ofFloat(0f,1f).setDuration(600L)
         bgAnim.addUpdateListener {

@@ -8,13 +8,13 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-    <application xmlns:tools="http://schemas.android.com/tools"
+    <application
         android:name="com.orm.SugarApp"
         android:allowBackup="true"
         android:icon="@drawable/app_cashier"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/app_cashier"
         android:requestLegacyExternalStorage="true"
+        android:roundIcon="@drawable/app_cashier"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
@@ -116,11 +116,15 @@
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.KategoriTransaksi"
+            android:name=".activity.ProdukTransaksi"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activity.ProdukTransaksi"
+            android:name=".activity.CheckTransaksi"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.CheckoutActivity"
             android:screenOrientation="portrait" />
 
         <activity
@@ -149,7 +153,7 @@
 
         <meta-data
             android:name="DATABASE"
-            android:value="appkasir.db" />
+            android:value="app_kasir.db" />
         <meta-data
             android:name="VERSION"
             android:value="1" />

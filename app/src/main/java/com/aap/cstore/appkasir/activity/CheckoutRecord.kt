@@ -95,18 +95,15 @@ class CheckoutRecord : AppCompatActivity() {
         val profile = SugarRecord.listAll(Profile::class.java).firstOrNull()
         if (profile != null) {
             tvNamaCafe.text = profile.namaToko
-            tvAlamatCafe.text = profile.alamatToko
+            tvAlamatCafe.text = profile.tagLine
         }
         val transaksi = SugarRecord.find(Transaksi::class.java, "id = ?", id).firstOrNull()
         if (transaksi != null) {
-            val itemTransaksi = SugarRecord.find(
-                ItemTransaksi::class.java,
-                "id_transaksi = ?",
-                transaksi.id.toString()
-            )
+            val itemTransaksi = SugarRecord.find(ItemTransaksi::class.java, "id_transaksi = ?", transaksi.id.toString())
+            var count = 0
+            count += itemTransaksi.count()
             for (item in itemTransaksi) {
-                val view =
-                    LayoutInflater.from(this).inflate(R.layout.layout_table_row, table, false)
+                val view = LayoutInflater.from(this).inflate(R.layout.layout_table_row, table, false)
                 view.tvNamaProduk.text = item.namaProduk
                 view.tvHargaProduk.text = numberToCurrency(item.hargaProduk!!)
                 view.tvJumlah.text = item.jumlah.toString()
@@ -115,8 +112,21 @@ class CheckoutRecord : AppCompatActivity() {
             }
             val tanggal = transaksi.tanggalTransaksi
             val time = SimpleDateFormat("dd/MM/yyyy hh:mm:ss a").parse(tanggal)
-            tvTanggal.text = SimpleDateFormat("dd/MM/yyyy hh:mm:ss a").format(time).toString()
+            tvTanggal.text = "Tanggal : " + SimpleDateFormat("dd/MM/yyyy").format(time).toString()
+            tvJam.text = "Jam : " + SimpleDateFormat("hh:mm:ss a").format(time).toString()
+            val idMeja = transaksi.idMeja
+            val idLayanan = transaksi.idLayanan
+            if (idMeja != null) {
+//                val listMeja = SugarRecord.findById(Meja::class.java,idMeja)
+                tvLayanan.text = transaksi.namaOrderan + " : Meja Nomor" + transaksi.namaMeja
+            }
+            if (idLayanan != null) {
+//                val listLayanan = SugarRecord.findById(Layanan::class.java,idLayanan)
+                tvLayanan.text = transaksi.namaOrderan + " : " + transaksi.namaLayanan
+            }
+            textView9.text = "Total ( " + count + " item )"
             tvTotalBayar.text = numberToCurrency(transaksi.totalPembayaran!!)
+            textView11.text = "Ppn "+ profile?.ppn.toString() + " %"
             tvPpn.text = numberToCurrency(transaksi.nominalPpn!!)
             tvDiskon.text = numberToCurrency(transaksi.nominalDiskon!!)
             tvSubTotal.text = numberToCurrency((transaksi.totalPembayaran!!+transaksi.nominalPpn!!)-transaksi.nominalDiskon!!)
@@ -197,7 +207,15 @@ class CheckoutRecord : AppCompatActivity() {
                 printer.printNewLines(2)
                 printer.printText("Tanggal : " + SimpleDateFormat("dd/MM/yyyy").format(time).toString(), BluetoothPrinterUtils.ALIGN_LEFT)
                 printer.printText("Jam : " + SimpleDateFormat("hh:mm:ss a").format(time).toString(), BluetoothPrinterUtils.ALIGN_LEFT)
-                printer.printText("Pelanggan Ke : " + transaksi?.id!!, BluetoothPrinterUtils.ALIGN_LEFT)
+                val idMeja = transaksi?.idMeja
+                val idLayanan = transaksi?.idLayanan
+                if (idMeja != null) {
+                    printer.printText(transaksi.namaOrderan + " : Meja Nomor " + transaksi.namaMeja, BluetoothPrinterUtils.ALIGN_LEFT)
+                }
+                if (idLayanan != null) {
+                    printer.printText(transaksi.namaOrderan + " : " + transaksi.namaLayanan, BluetoothPrinterUtils.ALIGN_LEFT)
+                }
+//                printer.printText("Pelanggan Ke : " + transaksi?.id!!, BluetoothPrinterUtils.ALIGN_LEFT)
                 printer.printLine()
                 val item = java.lang.String.format(
                     "%1$-16s %2$-9s %3$-4s %4$-9s",
@@ -223,7 +241,7 @@ class CheckoutRecord : AppCompatActivity() {
                     "%1$-17s %2$-8s %3$-15s",
                     "Total ( " + count + " item )",
                     " ",
-                    numberToCurrency(transaksi.totalPembayaran!!)
+                    numberToCurrency(transaksi?.totalPembayaran!!)
                 )
                 printer.printString(str, BluetoothPrinterUtils.ALIGN_LEFT)
                 str = java.lang.String.format(
@@ -266,9 +284,8 @@ class CheckoutRecord : AppCompatActivity() {
                 printer.setFontStyle(BluetoothPrinterUtils.f1)
                 printer.printText("Terima Kasih", BluetoothPrinterUtils.ALIGN_CENTER)
                 printer.printText("Atas Kunjungan Anda", BluetoothPrinterUtils.ALIGN_CENTER)
-                printer.printText("Follow Us Instagram:", BluetoothPrinterUtils.ALIGN_CENTER)
-                printer.printText("Tiba-Tiba Ngopi = @tibatiba_ngopii", BluetoothPrinterUtils.ALIGN_CENTER)
-                printer.printText("My Kasir Android = @aap__07", BluetoothPrinterUtils.ALIGN_CENTER)
+                printer.printText("Follow Me On Instagram", BluetoothPrinterUtils.ALIGN_CENTER)
+                printer.printText("@aap__07 & @c_store07", BluetoothPrinterUtils.ALIGN_CENTER)
                 printer.printNewLines(3)
 
             } catch (e: Exception) {

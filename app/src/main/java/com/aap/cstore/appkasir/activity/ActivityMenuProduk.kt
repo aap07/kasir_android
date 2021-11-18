@@ -18,17 +18,19 @@ import kotlinx.android.synthetic.main.activity_menu.*
 class ActivityMenuProduk : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN);
+            WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_menu)
-        tvEmpty.setText("Belum Ada Daftar Produk")
+        val no_product: String = getString(R.string.no_product)
+        val pro: String = getString(R.string.product)
+        tvEmpty.text = no_product
         /*Setting toolbar*/
-        setToolbar(this, "Produk")
+        setToolbar(this, pro)
         /*Setting list item produk*/
         setToRecyclerView()
-        val userId = com.aap.cstore.appkasir.utils.getPreferences(this).getString(MyConstant.CURRENT_USER,"")
+        val userId = getPreferences(this).getString(MyConstant.CURRENT_USER,"")
         val user = SugarRecord.find(User::class.java,"id = ?",userId).firstOrNull()
         if (user?.role.equals(User.userSysAdmin) || user?.role.equals(User.userSysSuperAdmin)){
             btnAdd.visibility = View.VISIBLE
@@ -41,9 +43,9 @@ class ActivityMenuProduk : AppCompatActivity() {
         }
     }
 
-    fun setToRecyclerView() : Boolean{
+    private fun setToRecyclerView() : Boolean{
         val listProduk = SugarRecord.listAll(Produk::class.java)
-        val userId = com.aap.cstore.appkasir.utils.getPreferences(this).getString(MyConstant.CURRENT_USER,"")
+        val userId = getPreferences(this).getString(MyConstant.CURRENT_USER,"")
         val listuser = SugarRecord.find(User::class.java,"id = ?",userId).firstOrNull()
         if(listProduk.isEmpty()){
             tvEmpty.visibility = View.VISIBLE

@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".activity.CheckoutRecord">
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/layout"
@@ -32,11 +31,11 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aclonica"
                 android:text="Cafe Hepi"
                 android:textAlignment="center"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aclonica"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -47,11 +46,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aclonica"
                 android:text="Alamat"
                 android:textAlignment="center"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aclonica"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvNamaCafe" />
@@ -62,12 +61,35 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aldrich"
                 android:text="Tanggal"
                 android:textSize="12sp"
-                android:fontFamily="@font/aldrich"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvAlamatCafe" />
 
+            <TextView
+                android:id="@+id/tvJam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aldrich"
+                android:text="Jam"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvTanggal" />
+
+            <TextView
+                android:id="@+id/tvLayanan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aldrich"
+                android:text="Layanan"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvJam" />
 
             <View
                 android:id="@+id/view"
@@ -79,7 +101,7 @@
                 android:background="@color/primary_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvTanggal" />
+                app:layout_constraintTop_toBottomOf="@+id/tvLayanan" />
 
             <LinearLayout
                 android:id="@+id/linearLayout"
@@ -107,41 +129,41 @@
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:layout_weight=".3"
-                            android:text="Nama"
+                            android:fontFamily="@font/aclonica"
+                            android:text="Menu"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/aclonica"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:layout_weight=".3"
+                            android:fontFamily="@font/aclonica"
                             android:text="Harga"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/aclonica"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:layout_weight=".1"
-                            android:text="Jumlah"
+                            android:fontFamily="@font/aclonica"
+                            android:text="Qty"
                             android:textAlignment="center"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/aclonica"/>
+                            android:textStyle="bold" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="16dp"
                             android:layout_weight=".3"
+                            android:fontFamily="@font/aclonica"
                             android:text="Total"
                             android:textSize="12sp"
-                            android:textStyle="bold"
-                            android:fontFamily="@font/aclonica"/>
+                            android:textStyle="bold" />
                     </TableRow>
                 </TableLayout>
             </LinearLayout>
@@ -156,17 +178,17 @@
                 android:background="@color/primary_text"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linearLayout"/>
+                app:layout_constraintTop_toBottomOf="@id/linearLayout" />
 
             <TextView
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/aclonica"
                 android:text="Total"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aclonica"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/view1" />
 
@@ -175,10 +197,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/aclonica"
                 android:text="Ppn"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aclonica"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -187,10 +209,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/aclonica"
                 android:text="Diskon"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aclonica"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
@@ -199,10 +221,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                android:fontFamily="@font/aclonica"
                 android:text="SubTotal"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aclonica"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -211,10 +233,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:fontFamily="@font/aclonica"
                 android:text="Bayar"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aclonica"
                 app:layout_constraintStart_toStartOf="@+id/textView10"
                 app:layout_constraintTop_toBottomOf="@+id/textView12" />
 
@@ -223,10 +245,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:fontFamily="@font/aclonica"
                 android:text="Kembalian"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aclonica"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/linearLayout"
                 app:layout_constraintTop_toBottomOf="@+id/textView7" />
@@ -237,11 +259,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aldrich"
                 android:text="Total"
                 android:textAlignment="textStart"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aldrich"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/view1" />
 
@@ -251,11 +273,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aldrich"
                 android:text="Ppn"
                 android:textAlignment="textStart"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aldrich"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTotalBayar" />
 
@@ -265,11 +287,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aldrich"
                 android:text="Diskon"
                 android:textAlignment="textStart"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aldrich"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvPpn" />
 
@@ -279,11 +301,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aldrich"
                 android:text="SubTotal"
                 android:textAlignment="textStart"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aldrich"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvDiskon" />
 
@@ -293,11 +315,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aldrich"
                 android:text="Bayar"
                 android:textAlignment="textStart"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aldrich"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvSubTotal" />
 
@@ -307,27 +329,54 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="16dp"
+                android:fontFamily="@font/aldrich"
                 android:text="Kembalian"
                 android:textAlignment="textStart"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:fontFamily="@font/aldrich"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvBayar" />
 
             <TextView
+                android:id="@+id/textView22"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="64dp"
                 android:layout_marginBottom="16dp"
+                android:fontFamily="@font/aclonica"
                 android:text="Terimakasih"
                 android:textAlignment="textStart"
                 android:textSize="12sp"
-                android:fontFamily="@font/aclonica"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvKembalian" />
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/aclonica"
+                android:text="Atas Kunjungan Anda"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView22" />
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/aclonica"
+                android:text="Kami Tunggu Kedatangannya Kembali"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView23" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

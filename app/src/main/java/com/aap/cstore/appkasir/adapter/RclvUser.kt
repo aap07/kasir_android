@@ -15,7 +15,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlinx.android.synthetic.main.layout_item_pegawai.view.*
 
 /*Adapter recycler view untuk menapilkan item user*/
-class RclvUser(val context: Context, var listUser : MutableList<User>, var listROle: User): RecyclerView.Adapter<RclvUser.ViewHolder>() {
+class RclvUser(val context: Context, var listUser : MutableList<User>, var listRole: User): RecyclerView.Adapter<RclvUser.ViewHolder>() {
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(user: User, role:User, context: Context){
             itemView.tvNama.text = user.nama
@@ -33,7 +33,7 @@ class RclvUser(val context: Context, var listUser : MutableList<User>, var listR
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = listUser[position]
-        val role = listROle
+        val role = listRole
         holder.bind(user, role, context)
         if (role.role.equals(User.userSysSuperAdmin)) {
             holder.itemView.setOnClickListener {

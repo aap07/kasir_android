@@ -23,7 +23,7 @@ class DetailLaporanHarian : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.detail_laporan)
         setToolbar(this,"Detail Laporan Harian")
-
+        textView15.setText("Tanggal")
         val tanggal = intent.getStringExtra("tanggal")
         if(tanggal != null){
             val transaksi = SugarRecord.listAll(Transaksi::class.java).filter { l -> l.status == false && l.tanggalTransaksi?.substring(0, l.tanggalTransaksi!!.indexOf(" ")).equals(tanggal) }

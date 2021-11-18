@@ -1,7 +1,7 @@
 package com.aap.cstore.appkasir.adapter
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -14,19 +14,20 @@ import com.aap.cstore.appkasir.models.Produk
 import com.aap.cstore.appkasir.models.User
 import com.aap.cstore.appkasir.utils.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+//import com.itextpdf.text.factories.GreekAlphabetFactory.getString
 import kotlinx.android.synthetic.main.layout_item_produk.view.*
 import java.util.*
 
 /*Adapter recycler view untuk menapilkan item produk*/
-class RclvProduk(val context: Context,var listProduk : MutableList<Produk>, var  listUser: User): RecyclerView.Adapter<RclvProduk.ViewHolder>(){
+class RclvProduk(val context: Context, private var listProduk : MutableList<Produk>, var  listUser: User): RecyclerView.Adapter<RclvProduk.ViewHolder>(){
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(produk: Produk, user: User, context: Context) {
-            itemView.tvNamaProduk.setText(produk.nama)
-            itemView.tvKategori.setText(produk.kategori?.nama)
-            itemView.tvHargaProduk.setText(
-                numberToCurrency(produk.harga!!)
-            )
-            itemView.tvTerjual.setText("Terjual " + produk.totalTerjual.toString())
+        @SuppressLint("SetTextI18n")
+        fun bind(produk: Produk) {
+            val sold: String = itemView.context.getString(R.string.sold)
+            itemView.tvNamaProduk.text = produk.nama
+            itemView.tvKategori.text = produk.kategori?.nama
+            itemView.tvHargaProduk.text = numberToCurrency(produk.harga!!)
+            itemView.tvTerjual.text = "$sold " + produk.totalTerjual.toString()
         }
     }
 
@@ -40,7 +41,7 @@ class RclvProduk(val context: Context,var listProduk : MutableList<Produk>, var 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produk = listProduk[position]
         val user = listUser
-        holder.bind(produk, user, context)
+        holder.bind(produk)
         if (user.role.equals(User.userSysAdmin) || user.role.equals(User.userSysSuperAdmin)) {
             holder.itemView.setOnClickListener {
                 val popupMenu = PopupMenu(context, it)
@@ -57,17 +58,18 @@ class RclvProduk(val context: Context,var listProduk : MutableList<Produk>, var 
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     private fun hapusItem(produk: Produk) {
-        MaterialAlertDialogBuilder(context).setTitle("Hapus")
-            .setMessage("Apakah anda yakin ingin menghapus?")
-            .setPositiveButton("Hapus", DialogInterface.OnClickListener { dialogInterface, i ->
+        MaterialAlertDialogBuilder(context).setTitle(R.string.delete)
+            .setMessage(R.string.sure_to_delete)
+            .setPositiveButton(R.string.delete) { dialogInterface, i ->
                 listProduk.removeAt(listProduk.indexOf(produk))
                 produk.delete()
                 notifyDataSetChanged()
-            })
+            }
             .setNegativeButton(
-                "Batal",
-                DialogInterface.OnClickListener { dialogInterface, i -> dialogInterface.dismiss() })
+                R.string.cancel
+            ) { dialogInterface, i -> dialogInterface.dismiss() }
             .show()
 
     }

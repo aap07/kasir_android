@@ -2,14 +2,11 @@ package com.aap.cstore.appkasir.adapter
 
 import android.content.Context
 import android.content.DialogInterface
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
 import androidx.recyclerview.widget.RecyclerView
 import com.aap.cstore.appkasir.R
-import com.aap.cstore.appkasir.activity.ListTransaksi
 import com.aap.cstore.appkasir.activity.ProdukTransaksi
 import com.aap.cstore.appkasir.models.*
 import com.aap.cstore.appkasir.utils.*
@@ -17,8 +14,6 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.orm.SugarRecord
 import kotlinx.android.synthetic.main.layout_item_produk.view.*
 import kotlinx.android.synthetic.main.layout_total_order.view.*
-import java.text.SimpleDateFormat
-import java.util.*
 
 /*Adapter recycler view untuk menapilkan item produk*/
 class RclvProdukDine :
@@ -86,9 +81,9 @@ class RclvProdukDine :
                                     view.tvJumlah.text.toString().toInt()
                                 )
                                 itemTransaksi.save()
-                                transaksi.totalPembayaran = transaksi.totalPembayaran?.plus(
-                                    produk.harga?.times(itemTransaksi.jumlah!!)!!
-                                )
+//                                produk.totalTerjual = produk.totalTerjual?.plus(view.tvJumlah.text.toString().toInt())
+//                                produk.save()
+                                transaksi.totalPembayaran = transaksi.totalPembayaran?.plus(view.tvJumlah.text.toString().toInt().times(itemTransaksi.hargaProduk!!))
                                 if (profile?.statusPpn == true) {
                                     transaksi.nominalPpn =
                                         (profile.ppn!! / 100) * transaksi.totalPembayaran!!
@@ -104,6 +99,8 @@ class RclvProdukDine :
                                     kategori = produk.kategori?.nama
                                 )
                                 item.save()
+//                                produk.totalTerjual = produk.totalTerjual?.plus(view.tvJumlah.text.toString().toInt())
+//                                produk.save()
                                 transaksi.totalPembayaran =
                                     transaksi.totalPembayaran?.plus(produk.harga?.times(item.jumlah!!)!!)
                                 if (profile?.statusPpn == true) {
@@ -113,7 +110,7 @@ class RclvProdukDine :
                                 transaksi.save()
                             }
                         }
-                        activity.setBadgeKeranjang()
+                        activity.setTransaksiList()
                     }).show()
 
             view.btnPlus.setOnClickListener {

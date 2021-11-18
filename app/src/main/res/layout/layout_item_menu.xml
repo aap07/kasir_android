@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -17,28 +18,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UseCompoundDrawables">
 
             <ImageView
                 android:id="@+id/iconMenu"
                 android:src="@drawable/photo"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:layout_margin="5dp"
                 android:adjustViewBounds="true"
                 android:cropToPadding="true"
-                android:maxHeight="50dp" />
+                android:maxHeight="50dp"
+                android:contentDescription="@string/menu" />
 
             <TextView
                 android:id="@+id/namaMenu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/iconMenu"
                 android:layout_margin="8dp"
                 android:layout_gravity="center_vertical"
-                android:text="Nama Menu"
+                android:text="@string/menu_name"
                 android:textStyle="bold"
                 android:textColor="#2da5de"
                 android:textSize="12sp"

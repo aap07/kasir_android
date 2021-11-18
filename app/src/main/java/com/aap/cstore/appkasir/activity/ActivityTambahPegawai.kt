@@ -24,7 +24,7 @@ class ActivityTambahPegawai : AppCompatActivity() {
         setToolbar(this, "Tambah Pegawai")
         textInputSatu.hint = "Nama Pegawai"
         textInputDua.hint = "Kontak"
-        textInputTiga.hint = "Usernam"
+        textInputTiga.hint = "Username"
         textInputEmpat.hint = "Password"
         spn.hint = "Role"
         val role = getResources().getStringArray(R.array.Role)
@@ -35,8 +35,8 @@ class ActivityTambahPegawai : AppCompatActivity() {
         val idUser = intent.getLongExtra("user", -1)
         val user = SugarRecord.findById(User::class.java, idUser)
         btnSimpan.setOnClickListener {
-            if (checkInput(textInputSatu) && checkInput(textInputTiga) && checkInputUsername(
-                    textInputDua
+            if (checkInput(textInputSatu) && checkInput(textInputDua) && checkInputUsername(
+                    textInputTiga
                 ) && checkInputPassword(textInputEmpat)
             ) {
                 if (update) {
@@ -52,8 +52,8 @@ class ActivityTambahPegawai : AppCompatActivity() {
         if (user != null) {
             textInputSatu.editText?.setText(user.nama)
             spn.selection = adapterSpinner.getPosition(user.role)
-            textInputTiga.editText?.setText(user.kontak)
-            textInputDua.editText?.setText(user.username)
+            textInputDua.editText?.setText(user.kontak)
+            textInputTiga.editText?.setText(user.username)
             textInputEmpat.editText?.setText(user.password)
         }
     }
@@ -63,8 +63,8 @@ class ActivityTambahPegawai : AppCompatActivity() {
         if (checkUser == null) {
             User(
                 nama = textInputSatu.editText?.text.toString(),
-                kontak = textInputTiga.editText?.text.toString(),
-                username = textInputDua.editText?.text.toString(),
+                kontak = textInputDua.editText?.text.toString(),
+                username = textInputTiga.editText?.text.toString(),
                 password = textInputEmpat.editText?.text.toString(),
                 role = spn.selectedItem.toString()
             ).save()
@@ -77,8 +77,8 @@ class ActivityTambahPegawai : AppCompatActivity() {
 
     private fun updateKaryawan(user: User?) {
         user?.nama = textInputSatu.editText?.text.toString()
-        user?.kontak = textInputTiga.editText?.text.toString()
-        user?.username = textInputDua.editText?.text.toString()
+        user?.kontak = textInputDua.editText?.text.toString()
+        user?.username = textInputTiga.editText?.text.toString()
         user?.password = textInputEmpat.editText?.text.toString()
         user?.role = spn.selectedItem.toString()
         user?.save()

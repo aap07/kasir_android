@@ -11,38 +11,20 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
         android:minHeight="?attr/actionBarSize"
         android:background="@drawable/background_login"
         android:theme="?attr/actionBarTheme">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/textNamaToko"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="C-Store07"
-                android:layout_gravity="center_vertical|start"
-                android:textSize="25dp"
-                android:textStyle="bold"
-                android:textColor="#f4f7f5"
-                android:fontFamily="@font/aclonica"/>
-
-
-            <ImageView
-                android:id="@+id/btnLogout"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="end"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="8dp"
-                android:src="@drawable/ic_exit" />
-
-        </FrameLayout>
+        <TextView
+            android:id="@+id/textNamaToko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/c_store07"
+            android:layout_gravity="center_vertical|start"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:textColor="#f4f7f5"
+            android:fontFamily="@font/aclonica"/>
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -83,9 +65,9 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/aclonica"
                     android:singleLine="true"
-                    android:text="Selamat Pagi, Admin"
+                    android:text="@string/greetings_morning"
                     android:textColor="#f4f7f5"
-                    android:textSize="15dp"
+                    android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -96,10 +78,11 @@
                     android:layout_marginStart="10dp"
                     android:fontFamily="@font/aldrich"
                     android:gravity="center"
-                    android:text="Senin, 07 Desember 2020"
+                    android:text="@string/date"
                     android:textColor="#f4f7f5"
-                    android:textSize="8dp"
-                    android:textStyle="bold" />
+                    android:textSize="8sp"
+                    android:textStyle="bold"
+                    tools:ignore="SmallSp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,7 +90,8 @@
                     android:layout_below="@+id/textToday"
                     android:layout_marginTop="50dp"
                     android:gravity="center_horizontal"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:baselineAligned="false">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -122,19 +106,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
-                            android:text="Hari Ini"
+                            android:text="@string/today"
                             android:textAlignment="viewStart"
                             android:textColor="#2da5de"
                             android:textSize="10sp"
                             android:fontFamily="@font/aclonica"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:ignore="SmallSp" />
 
                         <TextView
                             android:id="@+id/textSalesToday"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
-                            android:text="Rp. 0"
+                            android:text="@string/sales_today"
                             android:textAlignment="center"
                             android:textColor="#2da5de"
                             android:fontFamily="@font/aldrich"
@@ -156,19 +141,20 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
-                            android:text="Bulan Ini"
+                            android:text="@string/this_month"
                             android:textAlignment="viewStart"
                             android:textColor="#2da5de"
                             android:textSize="10sp"
                             android:fontFamily="@font/aclonica"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            tools:ignore="SmallSp" />
 
                         <TextView
                             android:id="@+id/textSalesMonthly"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginHorizontal="10dp"
-                            android:text="Rp. 0"
+                            android:text="@string/sales_month"
                             android:textAlignment="center"
                             android:textColor="#2da5de"
                             android:fontFamily="@font/aldrich"
@@ -181,12 +167,16 @@
 
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rclv"
+            <fragment
+                android:id="@+id/nav_host"
+                android:name="androidx.navigation.fragment.NavHostFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:defaultNavHost="true"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                app:navGraph="@navigation/navigation"
+                tools:ignore="NestedWeights" />
 
         </LinearLayout>
 
@@ -203,9 +193,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:backgroundTint="#ffffff"
-            app:fabCradleMargin="8dp"
-            app:fabCradleRoundedCornerRadius="30dp"
-            app:fabCradleVerticalOffset="6dp">
+            app:fabCradleMargin="10dp"
+            app:fabCradleRoundedCornerRadius="10dp"
+            app:fabCradleVerticalOffset="10dp">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottomNavView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="16dp"
+                app:menu="@menu/menu"/>
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 
@@ -218,7 +215,7 @@
             android:tint="#2da5de"
             app:layout_anchor="@id/app_bar"
             app:tint="#2da5de"
-            app:maxImageSize="30dp" />
+            android:contentDescription="@string/transaction" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </LinearLayout>

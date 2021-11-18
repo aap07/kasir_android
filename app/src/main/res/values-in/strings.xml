@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">App Kasir</string>
+    <string name="welcome">Selamat Datang</string>
+    <string name="greetings_morning">Selamat Pagi</string>
+    <string name="greetings_afternoon">Selamat Siang</string>
+    <string name="greetings_night">Selamat Malam</string>
+    <string name="transaction">Transaksi</string>
+    <string name="wrong_login">User/Password Salah</string>
+    <string name="login">LOGIN</string>
+    <string name="c_store07">C-Store07</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="app_cashier">APP KASIR</string>
+    <string name="date">Senin, 07 Desember 2020</string>
+    <string name="today">Hari Ini</string>
+    <string name="sales_today">Rp. 0</string>
+    <string name="this_month">Bulan Ini</string>
+    <string name="sales_month">Rp. 0</string>
+    <string name="menu">Menu</string>
+    <string name="menu_name">Nama Menu</string>
+    <string name="category_management">Manajemen Kategori</string>
+    <string name="product_management">Manajemen Produk</string>
+    <string name="dine_in_management">Manajemen Dine-In</string>
+    <string name="take_away_management">Manajemen Take-Away</string>
+    <string name="payment_management">Manajemen Pembayaran</string>
+    <string name="employee_management">Manajemen Pegawai</string>
+    <string name="store_management">Manajemen Toko</string>
+    <string name="sales_report">Laporan Penjualan</string>
+    <string name="profile">Profile</string>
+    <string name="about">Tentang</string>
+    <string name="category">Kategori</string>
+    <string name="product">Produk</string>
+    <string name="dine_in">Dine-In</string>
+    <string name="take_away">Take-Away</string>
+    <string name="payment">Pembayaran</string>
+    <string name="logout">Logout</string>
+    <string name="no_category">Tidak Ada Daftar Kategori</string>
+    <string name="no_product">Tidak Ada Daftar Produk</string>
+    <string name="delete">Hapus</string>
+    <string name="cancel">Batal</string>
+    <string name="sure_to_delete">Apakah Anda yakin untuk menghapus?</string>
+    <string name="edit">Edit</string>
+    <string name="add">Tambah</string>
+    <string name="sold">Terjual</string>
+    <string name="price">Rp. 0</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="report">Laporan</string>
+
+    <!--  Array  -->
+    <string-array name="Role">
+        <item>Admin</item>
+        <item>Kasir</item>
+    </string-array>
+</resources>

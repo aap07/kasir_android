@@ -12,6 +12,7 @@ data class Transaksi(
     var namaLayanan: String? = null,
     var idMeja: Long? = 0,
     var namaMeja: String? = null,
+    var metodePembayaran: MetodePembayaran? = null,
     var totalPembayaran: Double? = 0.0,
     var bayar: Double? = 0.0,
     var diskon: Double? = 0.0,

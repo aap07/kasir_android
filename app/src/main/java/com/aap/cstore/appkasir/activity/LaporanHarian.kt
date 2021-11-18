@@ -103,6 +103,7 @@ class LaporanHarian : AppCompatActivity() {
         var ppn = 0.0
         var diskon = 0.0
         var totalProduk = 0
+        totalProduk += iTransaksi.count()
         var listItemTransaksi = mutableListOf<ItemTransaksi>()
 
         if(iTransaksi.isNotEmpty()){
@@ -115,7 +116,7 @@ class LaporanHarian : AppCompatActivity() {
                 if(itemTransaksi.isNotEmpty()){
                     for(item in itemTransaksi){
                         listItemTransaksi.add(item)
-                        totalProduk += item.jumlah!!
+//                        totalProduk += item.jumlah!!
                     }
                 }
             }
@@ -129,8 +130,8 @@ class LaporanHarian : AppCompatActivity() {
         table.addCell(doc.createCell("Tanggal",PdfUtils.fontNormal,PdfUtils.no_border))
         table.addCell(doc.createCell(": "+SimpleDateFormat("dd MMMM yyyy").format(date).toString(),PdfUtils.fontNormal,PdfUtils.no_border))
 
-        table.addCell(doc.createCell("Total Penjualan",PdfUtils.fontNormal,PdfUtils.no_border))
-        table.addCell(doc.createCell(": $totalProduk Produk",PdfUtils.fontNormal,PdfUtils.no_border))
+        table.addCell(doc.createCell("Total Transaksi",PdfUtils.fontNormal,PdfUtils.no_border))
+        table.addCell(doc.createCell(": $totalProduk Transaksi",PdfUtils.fontNormal,PdfUtils.no_border))
 
         table.addCell(doc.createCell("Total Pendapatan",PdfUtils.fontNormal,PdfUtils.no_border))
         table.addCell(doc.createCell(": "+numberToCurrency(totalPenjualan),PdfUtils.fontNormal,PdfUtils.no_border))

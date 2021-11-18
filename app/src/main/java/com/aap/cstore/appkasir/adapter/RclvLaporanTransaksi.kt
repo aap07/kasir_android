@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.aap.cstore.appkasir.R
 import com.aap.cstore.appkasir.activity.CheckoutRecord
-import com.aap.cstore.appkasir.models.Transaksi
+import com.aap.cstore.appkasir.models.*
 import com.aap.cstore.appkasir.utils.*
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.orm.SugarRecord
@@ -54,6 +54,30 @@ class RclvLaporanTransaksi(val context: Context, var listTransaksi : MutableList
         MaterialAlertDialogBuilder(context).setTitle("Hapus").setMessage("Apakah anda yakin ingin menghapus?")
             .setPositiveButton("Hapus", DialogInterface.OnClickListener { dialogInterface, i ->
                 listTransaksi.removeAt(listTransaksi.indexOf(transaksi))
+                val itemTransaksi = SugarRecord.find(ItemTransaksi::class.java,"id_transaksi = ?", transaksi.id.toString())
+                val item = itemTransaksi.distinctBy { l -> l.produkId }
+                for (it in item){
+                    val produk = SugarRecord.findById(Produk::class.java,it.produkId)
+                    produk.totalTerjual = produk.totalTerjual?.minus(it.jumlah!!)
+                    produk.save()
+                }
+                val idMeja = SugarRecord.findById(Meja::class.java,transaksi.idMeja)
+                if (idMeja != null){
+                    idMeja.totalPengunjung = idMeja.totalPengunjung?.minus(1)
+                    idMeja.save()
+                }
+                val idLayanan = SugarRecord.findById(Layanan::class.java,transaksi.idLayanan)
+                if (idLayanan != null){
+                    idLayanan.totalLayanan = idLayanan.totalLayanan?.minus(1)
+                }
+                val methodPay = SugarRecord.find(MetodePembayaran::class.java,"nama = ?", transaksi.metodePembayaran?.nama).firstOrNull()
+                if (methodPay != null) {
+                    methodPay.totalMetode = methodPay.totalMetode?.minus(1)
+                    methodPay.save()
+                }
+                for (itTrans in itemTransaksi){
+                    itTrans.delete()
+                }
                 transaksi.delete()
                 notifyDataSetChanged()
             })
